@@ -1,0 +1,28 @@
+<div class="w-50 m-5">
+<form [formGroup]="addPrd" (ngSubmit)="onSubmit()" >
+    <div class="form-group">
+        <label>Product name</label>
+        <input type="text" formControlName="Name" name="name" class="form-control"   required  minlength="8"  placeholder="Product name"
+            autocomplete="" />
+            <span class="text-danger"
+            *ngIf="(registerFormControl.Name.touched) && registerFormControl.Name.errors?.required">
+            Name is required
+        </span>
+    </div>
+    <div class="form-group">
+        <label>Product Price</label>
+        <input type="number" formControlName="Price" name="Price" class="form-control" placeholder="Product Price"
+            autocomplete="" />
+            <span class="text-danger" *ngIf="(addPrd.controls.Price.touched)&&addPrd.controls.Price.errors?.required">
+                Price Is required
+            </span>
+    </div>
+    <div class="form-group">
+        <label>Product Quantity</label>
+        <input type="number" formControlName="Quantity" name="Quantity" class="form-control" placeholder="Product Quantity"
+            autocomplete="" />
+    </div>
+    <button type="submit" [disabled]="addPrd.invalid" class="btn btn-danger"  >Add</button>
+</form>
+
+</div>

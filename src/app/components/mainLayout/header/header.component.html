@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" [routerLink]="['/home']"><img src="../../../../assets/apple.png" width="40px"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+        aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+                <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active bg-dark">Home
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/products']" routerLinkActive="active bg-dark">Products</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/contact us']" routerLinkActive="active bg-dark">Contact Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/about us']" routerLinkActive="active bg-dark">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/productsapi']" routerLinkActive="active"
+                    id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Products Api</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    User
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" [routerLink]="['/user/myprofile']" routerLinkActive="active">View
+                        Profile</a>
+                    <a class="dropdown-item" [routerLink]="['/user/editprofile']" routerLinkActive="active">Edit
+                        profile</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="form-inline">
+        <a class="btn btn-outline-dark mx-2" type="button" [routerLink]="['/login']" routerLinkActive="router-link-active" >login</a>
+        <a class="btn btn-danger" type="button" [routerLink]="['/routePath']" routerLinkActive="router-link-active" >Logout</a>
+      </div>
+</nav>

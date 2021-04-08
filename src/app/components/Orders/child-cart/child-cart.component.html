@@ -1,0 +1,45 @@
+<div class="">
+    <table class="table table-hover m-4 bg-light  border rounded">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Add to Cart</th>
+                <th scope="col">Buy</th>
+                <th scope="col">More</th>
+
+            </tr>
+        </thead>
+        <tbody *ngFor="let item of prodList;index as i">
+            <tr class="table" *ngIf="catId==item.CateogryID">
+                <th scope="row">{{i+1}}</th>
+                <td>{{item.Name}}</td>
+                <td>{{item.Price}}$</td>
+                <td>
+                    <span class="edit-quant">
+                        <button class="btn btn-success btn-sm" (click)="_increamentQTY(item.Quantity,i)">+</button>
+                        {{item.Quantity}}
+                        <button class="btn btn-danger btn-sm" (click)="_decreamentQTY(item.Quantity,i)">-</button>
+                    </span>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-success"
+                        (click)="totQuant(item.ID,item.Name,item.Price,item.Quantity)">
+                        Add to cart
+                    </button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger" (click)="totalPrice(item.Price,item.Quantity)">
+                        Buy
+                    </button>
+                </td>
+                <td>
+                    <a name="" id="" class="btn btn-primary" [routerLink]="['/products/',item.ID]"
+                        routerLinkActive="router-link-active" role="button">More..</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

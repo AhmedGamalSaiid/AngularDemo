@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row">
+        <div class="col mt-12">
+            <h4>Categories</h4>
+            <div class="form-group">
+                <select class="form-control" name="catList" id="cat" [(ngModel)]="catId">
+                    <option *ngFor="let item of a">{{item.Name}}</option>
+                </select>
+                <br>
+                <div class="alert alert-dismissible alert-danger col-4">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Total price:</strong> {{tPrice}}
+                </div>
+                <div class="alert alert-dismissible alert-info col-4">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Tax:</strong>{{tPrice*14/100}}
+                </div>
+                <div class="alert alert-dismissible alert-success col-4">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>after Tax:</strong>{{tPrice*114/100}}
+                </div>
+                <br>
+            </div>
+            <app-child-cart [catId]="catId" (totprice)="totalPricee($event)" (tq)="totqu($event)"></app-child-cart>
+            <div class="card m-4">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>product ID</th>
+                            <th>Product name</th>
+                            <th>Product Price per unit</th>
+                            <th>Quantity</th>
+                            <th>Product Total Price</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of prodQuant">
+                            <td scope="row">{{item.prodId}}</td>
+                            <td>{{item.prodName}}</td>
+                            <td>{{item.unitPrice}}</td>
+                            <td>{{item.selectQ}}</td>
+                            <td>{{item.unitPrice*item.selectQ}}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
