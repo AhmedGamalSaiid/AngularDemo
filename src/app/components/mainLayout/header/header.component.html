@@ -41,8 +41,8 @@
             </li>
         </ul>
     </div>
-    <div class="form-inline">
-        <a class="btn btn-outline-dark mx-2" type="button" [routerLink]="['/login']" routerLinkActive="router-link-active" >login</a>
-        <a class="btn btn-danger" type="button" [routerLink]="['/routePath']" routerLinkActive="router-link-active" >Logout</a>
-      </div>
+    <div class="form-inline" >
+        <a class="btn btn-outline-dark mx-2" *ngIf="!login" type="button" [routerLink]="['/login']" routerLinkActive="router-link-active" >login</a>
+        <a class="btn btn-danger" *ngIf="login" type="button" (click)="logOut()">Logout</a>
+    </div>
 </nav>
